@@ -8,12 +8,15 @@ set(CMAKE_CXX_EXTENSIONS OFF)
 include_directories(${CMAKE_SOURCE_DIR})
 include_directories(${CMAKE_SOURCE_DIR}/include)
 
+# 库
 add_library(calculator src/calculator.cpp)
 target_include_directories(calculator PUBLIC ${CMAKE_CURRENT_SOURCE_DIR}/include)
 
+# 主程序
 add_executable(app src/main.cpp)
 target_link_libraries(app PRIVATE calculator)
 
+# 测试
 enable_testing()
 
 add_executable(test_calculator tests/test_calculator.cpp)
